@@ -76,3 +76,5 @@
 (package! org-web-tools)
 
 (package! crux)
+
+(package! haskell-mode)

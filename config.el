@@ -52,6 +52,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; navigate with visual lines
+;;(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+;;(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
 (use-package! org-brain
   :init
   (setq org-brain-path "~/Nextcloud/org/brain")
@@ -90,7 +94,7 @@
 (use-package org-roam
   :init
   (setq my/daily-note-filename "%<%Y-%m-%d>.org"
-        my/daily-note-header "#+title: %<%Y-%m-%d %a>\n#+filetags:daily\n\n[[roam:%<%Y-%B>]]\n\n")
+        my/daily-note-header "#+title: %<%Y-%m-%d %a>\n#+filetags:daily\n\n[[roam:%<%Y-%B>]]\n\n[[roam:%<%Y-%B-%W>]]")
   :config
   (setq org-roam-directory "~/Nextcloud/org/roam")
   (setq org-roam-dailies-directory "daily/")
