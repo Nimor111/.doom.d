@@ -78,3 +78,7 @@
 (package! crux)
 
 (package! haskell-mode)
+
+(package! uuidgen)
+
+(package! multi-vterm)
