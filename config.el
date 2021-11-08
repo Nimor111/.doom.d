@@ -91,7 +91,25 @@
         :desc "Run a love repl"
         "l" #'run-lisp-love))
 
-(use-package org-roam
+(use-package! org
+  :config
+  (push
+   '("c" "Commonplace public entry" entry
+     (file+olp+datetree "~/Nextcloud/org/commonplace.org")
+     "** %<%I:%M %p> :public: \n%?\n\n\n=Source=: %^{Source}")
+   org-capture-templates)
+
+  (push
+   '("C" "Commonplace private entry" entry
+     (file+olp+datetree "~/Nextcloud/org/commonplace.org")
+     "** %<%I:%M %p> :private: \n%?\n\n\n=Source=: %^{Source}")
+   org-capture-templates)
+
+  (add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
+
+  (setq org-id-link-to-org-use-id t))
+
+(use-package! org-roam
   :init
   (setq my/daily-note-filename "%<%Y-%m-%d>.org"
         my/daily-note-header "#+title: %<%Y-%m-%d %a>\n#+filetags:daily\n\n[[roam:%<%Y-%B>]]\n\n[[roam:%<%Y-%B-%W>]]")
@@ -176,7 +194,7 @@
 
   (org-roam-db-autosync-mode))
 
-(use-package org-roam-ui
+(use-package! org-roam-ui
   :config
   (setq org-roam-ui-sync-theme t
         org-roam-ui-follow t
@@ -202,12 +220,12 @@
       :localleader
       "A" #'org-archive-hierarchically)
 
-(use-package ox-altacv
+(use-package! ox-altacv
   :init (require 'ox-altacv)
   :config
   (setq org-latex-compiler "pdflatex"))
 
-(use-package mu4e
+(use-package! mu4e
   :config
   (setq mu4e-update-interval 300)
   (setq mu4e-get-mail-command "$(which mbsync) -Va")
@@ -243,15 +261,15 @@
                    (smtpmail-stream-type  . starttls)
                    (smtp-debug-info       . t))))))
 
-(use-package crux
+(use-package! crux
   :config
   (map! :leader
         "r s" #'crux-create-scratch-buffer))
 
-(use-package ledger
+(use-package! ledger
   :mode (("\\.journal\\'" . ledger-mode)))
 
-(use-package multi-vterm
+(use-package! multi-vterm
         :config
         (add-hook 'vterm-mode-hook
                         (lambda ()
