@@ -107,7 +107,17 @@
 
   (add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
 
-  (setq org-id-link-to-org-use-id t))
+  (setq org-id-link-to-org-use-id t)
+
+  (defun open-commonplace ()
+    (interactive)
+    (find-file "~/Nextcloud/org/commonplace.org"))
+
+  (map!
+   :leader
+   :prefix ("o" . "open")
+   :desc "Open commonplace"
+   "c" #'open-commonplace))
 
 (use-package! org-roam
   :init
