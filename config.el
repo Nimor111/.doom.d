@@ -122,7 +122,7 @@
 (use-package! org-roam
   :init
   (setq my/daily-note-filename "%<%Y-%m-%d>.org"
-        my/daily-note-header "#+title: %<%Y-%m-%d %a>\n#+filetags:daily\n\n[[roam:%<%Y-%B>]]\n\n[[roam:%<%Y-%B-%W>]]")
+        my/daily-note-header "#+title: %<%Y-%m-%d %a>\n\n[[roam:%<%Y-%B>]]\n\n[[roam:%<%Y-%B-%W>]]")
   :config
   (setq org-roam-directory "~/Nextcloud/org/roam")
   (setq org-roam-dailies-directory "daily/")
