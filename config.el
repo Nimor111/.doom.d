@@ -313,3 +313,5 @@
         (evil-define-key 'normal vterm-mode-map (kbd "i")        #'evil-insert-resume)
         (evil-define-key 'normal vterm-mode-map (kbd "o")        #'evil-insert-resume)
         (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume))
+
+(setq-hook! 'typescript-mode-hook +format-with-lsp nil)
