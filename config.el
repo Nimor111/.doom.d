@@ -94,14 +94,14 @@
 (use-package! org
   :config
   (push
-   '("c" "Commonplace public entry" entry
-     (file+olp+datetree "~/Nextcloud/org/commonplace.org")
+   '("c" "Daily log public entry" entry
+     (file+olp+datetree "~/Nextcloud/org/daily-log.org")
      "** %<%I:%M %p> :public: \n%?\n\n\n=Source=: %^{Source}")
    org-capture-templates)
 
   (push
-   '("C" "Commonplace private entry" entry
-     (file+olp+datetree "~/Nextcloud/org/commonplace.org")
+   '("C" "Daily log private entry" entry
+     (file+olp+datetree "~/Nextcloud/org/daily-log.org")
      "** %<%I:%M %p> :private: \n%?\n\n\n=Source=: %^{Source}")
    org-capture-templates)
 
@@ -109,15 +109,15 @@
 
   (setq org-id-link-to-org-use-id t)
 
-  (defun open-commonplace ()
+  (defun open-daily-log ()
     (interactive)
-    (find-file "~/Nextcloud/org/commonplace.org"))
+    (find-file "~/Nextcloud/org/daily-log.org"))
 
   (map!
    :leader
    :prefix ("o" . "open")
-   :desc "Open commonplace"
-   "c" #'open-commonplace))
+   :desc "Open daily log"
+   "c" #'open-daily-log))
 
 (use-package! org-roam
   :init
@@ -315,3 +315,7 @@
         (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume))
 
 (setq-hook! 'typescript-mode-hook +format-with-lsp nil)
+
+(use-package! typescript-mode
+  :config
+  (setq typescript-indent-level 2))
