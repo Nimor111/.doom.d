@@ -318,4 +318,5 @@
 
 (use-package! typescript-mode
   :config
-  (setq typescript-indent-level 2))
+  (setq typescript-indent-level 2)
+  (setq +format-with-lsp nil))
